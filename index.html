@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Image Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            position: relative;
+            width: 600px; /* Adjust to match your image width */
+        }
+        .container img {
+            width: 100%;
+            display: block;
+        }
+        .text-overlay {
+            position: absolute;
+            top: 50px; /* Adjust position of pre-filled text */
+            left: 20px; /* Adjust based on image */
+            color: white; /* Adjust text color for contrast */
+            font-size: 18px; /* Adjust font size */
+            font-weight: bold;
+        }
+        
+	.text-box {
+	        position: absolute;
+            	bottom: 231px; /* Adjust the position as needed */
+            	left: 172px;   /* Adjust the position as needed */
+            	width: 101px;
+	}
+      
+        .submit-button {
+            position: absolute;
+            bottom: 195px; /* Adjust the position as needed */
+            left: 146px;   /* Adjust the position as needed */
+        }
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="template.png" alt="Background Image" class="background-image">
+       
+<div class="text-overlay">
+        </div>
+        <form id="responseForm">
+            
+	       <input type="text" id="textBox" name="textBox" class="text-box" placeholder="Enter first value" required>
+                <button type="submit" class="submit-button">Submit</button>
+       
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('responseForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const textBoxValue = document.getElementById('textBox').value;
+            
+
+            // Display the values or send them to a server
+            alert(`Text Box: ${textBoxValue}`);
+
+            // Example code to send data to a server (uncomment and adjust as needed):
+            /*
+            fetch('/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ textBox: textBoxValue})
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert('Form submitted successfully!');
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+            */
+        });
+    </script>
+</body>
+</html>
